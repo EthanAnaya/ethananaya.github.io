@@ -35,7 +35,7 @@ window.onload = function () {
             const dx = mouse.x - this.x;
             const dy = mouse.y - this.y;
             const distance = Math.sqrt(dx * dx + dy * dy);
-            const maxDistance = 100; // Distance at which stars will start moving away
+            const maxDistance = 150; // Distance at which stars will start moving away
             const force = Math.min(maxDistance / distance, 1);
 
             this.x -= this.speedX * force;
@@ -73,7 +73,6 @@ window.onload = function () {
     createStars();
     animateStars();
 
-    // Update mouse position
     window.addEventListener('mousemove', (event) => {
         mouse.x = event.clientX;
         mouse.y = event.clientY;

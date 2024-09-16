@@ -1,51 +1,74 @@
 window.onload = function () {
     const canvas = document.createElement("canvas");
-    document.getElementById("background").appendChild(canvas);
+    document.getElementById("background-canvas").appendChild(canvas);
     const ctx = canvas.getContext("2d");
 
     let width = canvas.width = window.innerWidth;
     let height = canvas.height = window.innerHeight;
 
-    // Resize canvas if window size changes
     window.onresize = function () {
         width = canvas.width = window.innerWidth;
         height = canvas.height = window.innerHeight;
     };
 
-    const particles = [];
+    const stars = [];
 
-    function createParticles() {
-        for (let i = 0; i < 100; i++) {
-            particles.push({
-                x: Math.random() * width,
-                y: Math.random() * height,
-                radius: Math.random() * 5 + 2,
-                speedX: (Math.random() - 0.5) * 2,
-                speedY: (Math.random() - 0.5) * 2,
-                color: `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 0.5)`
-            });
+    // Star class to create individual stars
+    class Star {
+        constructor(x, y, radius, speedX, speedY) {
+            this.x = x;
+            this.y = y;
+            this.radius = radius;
+            this.speedX = speedX;
+            this.speedY = speedY;
+        }
+
+        // Draw the star on the canvas
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = "white";
+            ctx.fill();
+        }
+
+        // Update star position
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+
+            // Wrap around when stars go off-screen
+            if (this.x < 0) this.x = width;
+            if (this.x > width) this.x = 0;
+            if (this.y < 0) this.y = height;
+            if (this.y > height) this.y = 0;
         }
     }
 
-    function updateParticles() {
-        ctx.clearRect(0, 0, width, height);
-
-        particles.forEach(p => {
-            p.x += p.speedX;
-            p.y += p.speedY;
-
-            if (p.x < 0 || p.x > width) p.speedX *= -1;
-            if (p.y < 0 || p.y > height) p.speedY *= -1;
-
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2, false);
-            ctx.fillStyle = p.color;
-            ctx.fill();
-        });
-
-        requestAnimationFrame(updateParticles);
+    // Function to create stars
+    function createStars() {
+        for (let i = 0; i < 150; i++) {
+            const radius = Math.random() * 2 + 1;
+            const x = Math.random() * width;
+            const y = Math.random() * height;
+            const speedX = (Math.random() - 0.5) * 0.5;
+            const speedY = (Math.random() - 0.5) * 0.5;
+            stars.push(new Star(x, y, radius, speedX, speedY));
+        }
     }
 
-    createParticles();
-    updateParticles();
+    // Function to animate stars
+    function animateStars() {
+        ctx.clearRect(0, 0, width, height);
+
+        stars.forEach(star => {
+            star.update();
+            star.draw();
+        });
+
+        requestAnimationFrame(animateStars);
+    }
+
+    // Create and animate the stars
+    createStars();
+    animateStars();
 };

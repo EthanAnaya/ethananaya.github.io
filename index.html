@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ethan.html</title>
 
-    <!-- Internal CSS within the HTML file -->
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Internal CSS for styling -->
     <style>
         /* Reset default browser styles */
         * {
@@ -35,12 +38,12 @@
             height: 100vh;
             text-align: center;
             color: white;
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         /* Styling for the name */
         #name {
-            font-size: 4rem;
+            font-size: 5rem;
             font-weight: bold;
             margin-bottom: 20px;
             transition: transform 0.3s ease-in-out; /* Smooth hover animation */
@@ -49,13 +52,34 @@
         /* Styling for the description */
         #description {
             font-size: 1.5rem;
-            max-width: 600px;
+            max-width: 700px;
             margin-bottom: 40px;
             transition: transform 0.3s ease-in-out; /* Smooth hover animation */
         }
 
         /* Hover effect to scale elements slightly larger */
         #name:hover, #description:hover {
+            transform: scale(1.05);
+        }
+
+        /* Styling for the links section */
+        .links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .links a {
+            text-decoration: none;
+            color: white;
+            background-color: #007BFF;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .links a:hover {
+            background-color: #0056b3;
             transform: scale(1.1);
         }
 
@@ -78,8 +102,15 @@
 
     <!-- Main content -->
     <div class="container">
-        <h1 id="name">Ethan</h1>
+        <h1 id="name">Ethan.HTML</h1>
         <p id="description">This is a brief description of yourself. You can include your hobbies, interests, or a short bio. Make it catchy and engaging!</p>
+        
+        <!-- Links section -->
+        <div class="links">
+            <a href="https://www.example.com" target="_blank">Portfolio</a>
+            <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+            <a href="mailto:ethananaya351@gmail.com">Contact Me</a>
+        </div>
     </div>
 
     <!-- Link to the JavaScript file for background effects -->

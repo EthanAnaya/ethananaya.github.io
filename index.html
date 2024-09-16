@@ -8,92 +8,8 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 
-    <!-- Internal CSS for styling -->
-    <style>
-        /* Reset default browser styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Full height and width for the background */
-        #background-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: black; /* Fallback color */
-            overflow: hidden;
-        }
-
-        /* Center content and give the container some padding */
-        .container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-            color: white;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        /* Styling for the name */
-        #name {
-            font-size: 5rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-            transition: transform 0.3s ease-in-out; /* Smooth hover animation */
-        }
-
-        /* Styling for the description */
-        #description {
-            font-size: 1.5rem;
-            max-width: 700px;
-            margin-bottom: 40px;
-            transition: transform 0.3s ease-in-out; /* Smooth hover animation */
-        }
-
-        /* Hover effect to scale elements slightly larger */
-        #name:hover, #description:hover {
-            transform: scale(1.05);
-        }
-
-        /* Styling for the links section */
-        .links {
-            display: flex;
-            gap: 20px;
-        }
-
-        .links a {
-            text-decoration: none;
-            color: white;
-            background-color: #007BFF;
-            padding: 10px 20px;
-            font-size: 1.2rem;
-            border-radius: 5px;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .links a:hover {
-            background-color: #0056b3;
-            transform: scale(1.1);
-        }
-
-        /* Background canvas container */
-        canvas {
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1; /* Place it behind content */
-        }
-    </style>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -102,7 +18,7 @@
 
     <!-- Main content -->
     <div class="container">
-        <h1 id="name">Ethan.HTML</h1>
+        <h1 id="name">Ethan ✯</h1>
         <p id="description">This is a brief description of yourself. You can include your hobbies, interests, or a short bio. Make it catchy and engaging!</p>
         
         <!-- Links section -->

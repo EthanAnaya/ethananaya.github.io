@@ -1,26 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ethan.html</title>
-    <!-- Updated Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div id="glitch-container">
-        <canvas id="background-canvas"></canvas>
-        <div class="container">
-            <h1 id="name">Ethan</h1>
-            <p id="description">Cybersecurity enthusiast, code breaker, and digital nomad. Hacking the matrix one line at a time.</p>
-            <div class="links">
-                <a href="https://www.example.com" target="_blank">Portfolio</a>
-                <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
-                <a href="mailto:email@example.com">Contact Me</a>
-            </div>
-        </div>
-    </div>
-    <script src="script.js"></script>
-</body>
-</html>
+const canvas = document.getElementById('background-canvas');
+const ctx = canvas.getContext('2d');
+
+let width = canvas.width = window.innerWidth;
+let height = canvas.height = window.innerHeight;
+
+const stars = [];
+
+class Star {
+    constructor(x, y, radius, speed) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+        this.speed = speed;
+    }
+
+    draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = "#0f0";
+        ctx.fill();
+    }
+
+    update() {
+        this.y += this.speed;
+        if (this.y > height) {
+            this.y = 0;
+            this.x = Math.random() * width;
+        }
+    }
+}
+
+function createStars() {
+    for (let i = 0; i < 200; i++) {
+        const radius = Math.random() * 1.5 + 0.5;
+        const x = Math.random() * width;
+        const y = Math.random() * height;
+        const speed = Math.random() * 0.5 + 0.1;
+        stars.push(new Star(x, y, radius, speed));
+    }
+}
+
+function animateStars() {
+    ctx.clearRect(0, 0, width, height);
+
+    stars.forEach(star => {
+        star.update();
+        star.draw();
+    });
+
+    requestAnimationFrame(animateStars);
+}
+
+createStars();
+animateStars();
+
+window.addEventListener('resize', () => {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+});
+
+// Glitch effect
+const glitchOverlay = document.getElementById('glitch-overlay');
+const glitchCtx = glitchOverlay.getContext('2d');
+
+function resizeGlitchOverlay() {
+    glitchOverlay.width = window.innerWidth;
+    glitchOverlay.height = window.innerHeight;
+}
+
+resizeGlitchOverlay();
+window.addEventListener('resize', resizeGlitchOverlay);
+
+function drawGlitchLine() {
+    glitchCtx.clearRect(0, 0, glitchOverlay.width, glitchOverlay.height);
+    
+    const lineHeight = Math.random() * 10 + 5;
+    const y = Math.random() * glitchOverlay.height;
+    
+    glitchCtx.fillStyle = Math.random() < 0.5 ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
+    glitchCtx.fillRect(0, y, glitch

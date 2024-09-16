@@ -4,24 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ethan.html</title>
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
     <!-- Link to external CSS file -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <canvas id="background-canvas"></canvas>
 
-    <!-- This section will hold the interactive background -->
-    <div id="background-canvas"></div>
-
-    <!-- Main content -->
     <div class="container">
-        <h1 id="name">Ethan</h1>
+        <h1 id="name" data-text="Ethan">Ethan</h1>
         <p id="description">This is a brief description of yourself. You can include your hobbies, interests, or a short bio. Make it catchy and engaging!</p>
         
-        <!-- Links section -->
         <div class="links">
             <a href="https://www.example.com" target="_blank">Portfolio</a>
             <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
@@ -29,10 +23,8 @@
         </div>
     </div>
 
-    <!-- Link to the JavaScript file for background effects -->
+    <!-- Link to external JavaScript files -->
     <script src="background.js"></script>
-
-    <!-- Link to the JavaScript file for glitch effect -->
     <script src="glitch.js"></script>
 </body>
 </html>

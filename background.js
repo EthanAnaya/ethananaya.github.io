@@ -12,8 +12,8 @@ window.onload = function () {
     };
 
     const stars = [];
+    const mouse = { x: width / 2, y: height / 2 };
 
-    // Star class to create individual stars
     class Star {
         constructor(x, y, radius, speedX, speedY) {
             this.x = x;
@@ -23,7 +23,6 @@ window.onload = function () {
             this.speedY = speedY;
         }
 
-        // Draw the star on the canvas
         draw() {
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
@@ -31,12 +30,17 @@ window.onload = function () {
             ctx.fill();
         }
 
-        // Update star position
         update() {
-            this.x += this.speedX;
-            this.y += this.speedY;
+            // Calculate distance from mouse and adjust speed
+            const dx = mouse.x - this.x;
+            const dy = mouse.y - this.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            const maxDistance = 100; // Distance at which stars will start moving away
+            const force = Math.min(maxDistance / distance, 1);
 
-            // Wrap around when stars go off-screen
+            this.x -= this.speedX * force;
+            this.y -= this.speedY * force;
+
             if (this.x < 0) this.x = width;
             if (this.x > width) this.x = 0;
             if (this.y < 0) this.y = height;
@@ -44,7 +48,6 @@ window.onload = function () {
         }
     }
 
-    // Function to create stars
     function createStars() {
         for (let i = 0; i < 150; i++) {
             const radius = Math.random() * 2 + 1;
@@ -56,7 +59,6 @@ window.onload = function () {
         }
     }
 
-    // Function to animate stars
     function animateStars() {
         ctx.clearRect(0, 0, width, height);
 
@@ -68,7 +70,12 @@ window.onload = function () {
         requestAnimationFrame(animateStars);
     }
 
-    // Create and animate the stars
     createStars();
     animateStars();
+
+    // Update mouse position
+    window.addEventListener('mousemove', (event) => {
+        mouse.x = event.clientX;
+        mouse.y = event.clientY;
+    });
 };

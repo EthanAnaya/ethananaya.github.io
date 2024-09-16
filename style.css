@@ -26,16 +26,16 @@
     height: 100vh;
     text-align: center;
     color: white;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 /* Styling for the name */
 #name {
     font-size: 5rem;
-    font-weight: bold;
+    font-weight: 700;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Make text more visible */
-    transition: transform 0.3s ease-in-out; /* Smooth hover animation */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8); /* Make text more visible */
+    transition: transform 0.3s ease-in-out, text-shadow 0.3s ease-in-out; /* Smooth hover animation */
 }
 
 /* Styling for the description */
@@ -43,7 +43,7 @@
     font-size: 1.5rem;
     max-width: 700px;
     margin-bottom: 40px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Make text more visible */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Make text more visible */
     transition: transform 0.3s ease-in-out; /* Smooth hover animation */
 }
 
@@ -61,7 +61,7 @@
 .links a {
     text-decoration: none;
     color: white;
-    background-color: #007BFF;
+    background-color: #28a745;
     padding: 12px 24px;
     font-size: 1.2rem;
     border-radius: 8px;
@@ -70,8 +70,8 @@
 }
 
 .links a:hover {
-    background-color: #0056b3;
-    transform: scale(1.1);
+    background-color: #218838;
+    transform: scale(1.05);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
@@ -85,4 +85,3 @@ canvas {
     height: 100%;
     z-index: -1; /* Place it behind content */
 }
-

@@ -85,3 +85,48 @@ canvas {
     height: 100%;
     z-index: -1; /* Place it behind content */
 }
+/* Glitch effect styling */
+.glitch {
+    position: relative;
+    display: inline-block;
+    color: white;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.glitch:before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #ff0081;
+    background: #00c2ff;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    animation: glitch-anim 1s infinite linear;
+    z-index: -1;
+}
+
+.glitch:after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #00c2ff;
+    background: #ff0081;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    animation: glitch-anim 1s infinite linear;
+    z-index: -1;
+}
+
+@keyframes glitch-anim {
+    0% {
+        transform: translateX(-5%) skewX(-5deg);
+    }
+    50% {
+        transform: translateX(5%) skewX(5deg);
+    }
+    100% {
+        transform: translateX(-5%) skewX(-5deg);
+    }
+}
+

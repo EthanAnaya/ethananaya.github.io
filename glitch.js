@@ -1,16 +1,14 @@
 function randomGlitch() {
     const name = document.getElementById('name');
-    const glitchInterval = Math.random() * 7000 + 1000; // Randomize between 1 and 8 seconds
+    const glitchInterval = Math.random() * 7000 + 1000;
 
     setTimeout(() => {
         name.classList.add('glitch');
         setTimeout(() => {
             name.classList.remove('glitch');
-            randomGlitch(); // Continue glitching
-        }, 500); // Glitch duration
+            randomGlitch();
+        }, 500);
     }, glitchInterval);
 }
 
-window.onload = function () {
-    randomGlitch();
-};
+randomGlitch();

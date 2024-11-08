@@ -1,0 +1,153 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #1a1a1a;
+  color: #f4f4f4;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1, h2 {
+  font-weight: 600;
+}
+
+/* Header Styles */
+header {
+  background-color: #111;
+  padding: 20px 0;
+  color: #fff;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: #00bcd4;
+}
+
+nav a {
+  color: #f4f4f4;
+  margin: 0 15px;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #00bcd4;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1500x700') no-repeat center center/cover;
+  color: #fff;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  background-color: #00bcd4;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  color: #fff;
+  border-radius: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #008c9e;
+}
+
+/* Info Section */
+.info {
+  padding: 60px 20px;
+  background-color: #333;
+  color: #ddd;
+}
+
+.info h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+/* Resources Section */
+.resources {
+  padding: 60px 20px;
+  background-color: #222;
+}
+
+.resources h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.resources ul {
+  list-style: none;
+  padding: 0;
+}
+
+.resources li {
+  margin: 15px 0;
+}
+
+.resources a {
+  color: #00bcd4;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+.resources a:hover {
+  color: #fff;
+}
+
+/* Footer Section */
+footer {
+  background-color: #111;
+  color: #bbb;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+footer p {
+  font-size: 1rem;
+  margin: 10px 0;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  .cta-button {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}

@@ -1,80 +1,39 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Suicide Prevention: Hope and Healing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Suicide Prevention: Hope and Healing</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#help">Get Help</a></li>
+            </ul>
+        </nav>
+    </header>
 
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-}
+    <section class="hero">
+        <img src="image1.jpg" alt="Image 1">
+        <img src="image2.jpg" alt="Image 2">
+        <img src="image3.jpg" alt="Image 3">
+    </section>
 
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
+    <section id="about">
+        <h2>About Suicide Prevention</h2>
+        <p>...</p>
+    </section>
 
-nav li {
-    display: inline-block;
-    margin-right: 20px;
-}
-
-nav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.gallery {
-    display: flex;
-    overflow-x: scroll;
-    scroll-behavior: smooth;
-    padding: 20px;
-    background-color: #fff;
-}
-
-.gallery img {
-    width: 300px;
-    height: auto;
-    margin: 0 10px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-section {
-    padding: 40px;
-    text-align: center;
-}
-
-h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-}
-
-p {
-    font-size: 18px;
-    line-height: 1.5;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-li {
-    margin-bottom: 10px;
-}
-
-a {
-    color: #333;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
+    <section id="help">
+        <h2>Get Help</h2>
+        <ul>
+            <li><a href="https://988lifeline.org/">988 Suicide & Crisis Lifeline</a></li>
+            <li><a href="https://crisistextline.org/">Crisis Text Line</a></li>
+            <li><a href="https://afsp.org/">American Foundation for Suicide Prevention</a></li>
+        </ul>
+    </section>
+</body>
+</html>

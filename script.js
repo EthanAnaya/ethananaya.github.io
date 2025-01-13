@@ -96,27 +96,38 @@ setTimeout(() => {
     const fadeInImage = document.getElementById('fade-in-image');
     fadeInImage.style.opacity = '1';
 }, 60000);
-// Load notification content from external HTML file
+// script.js
 document.addEventListener("DOMContentLoaded", function () {
-    fetch('notification-source.html')
-        .then(response => response.text())
+    const notificationPopup = document.getElementById('notification-popup');
+
+    // Fetch the notification HTML file
+    fetch('notification-source.html') // Updated file name
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.text();
+        })
         .then(html => {
-            // Parse the loaded HTML and extract the content
             const tempDiv = document.createElement('div');
             tempDiv.innerHTML = html;
             const notificationContent = tempDiv.querySelector('#notification-content');
 
-            // Update the popup with the loaded content
+            // Update the notification content
             if (notificationContent) {
-                document.getElementById('notification-popup').innerHTML = notificationContent.innerHTML + '<button id="close-notification">Close</button>';
-                document.getElementById('notification-popup').style.display = 'block';
+                notificationPopup.innerHTML = notificationContent.innerHTML + '<button id="close-notification">Close</button>';
 
-                // Add close button functionality
+                // Re-assign close button functionality
                 document.getElementById('close-notification').addEventListener('click', function () {
-                    document.getElementById('notification-popup').style.display = 'none';
+                    notificationPopup.style.display = 'none';
                 });
+
+                // Show the popup
+                notificationPopup.style.display = 'block';
             }
         })
-        .catch(error => console.error('Error loading notification:', error));
+        .catch(error => {
+            console.error('Error loading notification:', error);
+            notificationPopup.innerHTML = `<p style="color: red;">Failed to load notification!</p>`;
+        });
 });
-

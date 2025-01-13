@@ -98,7 +98,7 @@ setTimeout(() => {
 }, 60000);
 // Load notification content from external HTML file
 document.addEventListener("DOMContentLoaded", function () {
-    fetch('notification.html')
+    fetch('notification-source.html')
         .then(response => response.text())
         .then(html => {
             // Parse the loaded HTML and extract the content

@@ -42,6 +42,7 @@ body {
 #notification-display {
     position: fixed;
     right: 20px;
+    
     top: 50%;
     transform: translateY(-50%);
     color: #00ff00;

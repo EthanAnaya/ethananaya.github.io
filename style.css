@@ -56,45 +56,45 @@ button:hover {
     background-color: black; /* Ensure the background is black */
 }
 
-/* Notification popup styles */
+/* Styling for the notification box */
 #notification-popup {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.9); /* Dark background for popup */
-    border: 2px solid #00ff00;
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 0 20px #00ff00, 0 0 60px #00ff00, 0 0 100px #00ff00;
-    display: none; /* Initially hidden */
-}
-
-#notification-popup h2 {
-    color: #00ff00;
-    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
-}
-
-#notification-popup p {
-    color: #00ff00;
-    font-size: 1.2em;
-}
-
-/* Close button for notification */
-#close-notification {
-    margin-top: 10px;
-    padding: 10px 20px;
-    border: none;
-    background-color: #00ff00;
-    color: black;
-    font-size: 1em;
-    font-weight: bold;
-    cursor: pointer;
+    top: 20px;
+    right: 20px;
+    background-color: #333;
+    color: white;
+    padding: 15px 20px;
     border-radius: 5px;
-    text-shadow: none;
+    display: block; /* This makes it appear automatically */
+    width: 250px; /* Adjust width as necessary */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
 }
 
+/* Close button */
+#close-notification {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Close button hover effect */
 #close-notification:hover {
-    background-color: #00cc00;
+    color: red;
+}
+
+/* Paragraph style for message */
+#notification-popup p {
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Ensuring body takes up the full height */
+body, html {
+    height: 100%;
 }

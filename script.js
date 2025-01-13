@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const closeButton = document.getElementById('close-notification');
 
     // Fetch the notification HTML file
-    fetch('notification.html')
+    fetch('notification-source.html')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);

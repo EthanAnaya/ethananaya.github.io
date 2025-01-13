@@ -41,9 +41,10 @@ body {
 
 #notification-display {
     position: fixed;
-    right: 20px;
-    top: 20px;
+    right: 0px;
+    
+    top: 7%;
+    transform: translateY(-50%);
     color: #00ff00;
     max-width: 300px;
-    text-align: right;
 }

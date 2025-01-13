@@ -96,3 +96,27 @@ setTimeout(() => {
     const fadeInImage = document.getElementById('fade-in-image');
     fadeInImage.style.opacity = '1';
 }, 60000);
+// Load notification content from external HTML file
+document.addEventListener("DOMContentLoaded", function () {
+    fetch('notification.html')
+        .then(response => response.text())
+        .then(html => {
+            // Parse the loaded HTML and extract the content
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = html;
+            const notificationContent = tempDiv.querySelector('#notification-content');
+
+            // Update the popup with the loaded content
+            if (notificationContent) {
+                document.getElementById('notification-popup').innerHTML = notificationContent.innerHTML + '<button id="close-notification">Close</button>';
+                document.getElementById('notification-popup').style.display = 'block';
+
+                // Add close button functionality
+                document.getElementById('close-notification').addEventListener('click', function () {
+                    document.getElementById('notification-popup').style.display = 'none';
+                });
+            }
+        })
+        .catch(error => console.error('Error loading notification:', error));
+});
+

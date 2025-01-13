@@ -1,16 +1,19 @@
 /* General styles */
-body {
+html, body {
     margin: 0;
     padding: 0;
-    background-color: black; /* Solid black background */
+    height: 100%;
+    background-color: black !important; /* Ensure the background is black */
     color: green;
     font-family: 'Arial', sans-serif;
     overflow: hidden;
+}
+
+body {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 
 /* Title and Buttons */
@@ -50,7 +53,7 @@ button:hover {
     width: 100%;
     height: 100%;
     z-index: -1;
-    background-color: black; /* Solid black background */
+    background-color: black; /* Ensure the background is black */
 }
 
 /* Notification popup styles */

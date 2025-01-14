@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const doc = parser.parseFromString(html, 'text/html');
             const content = doc.querySelector('#notification-content');
             if (content) {
-                notificationDisplay.textContent = content.textContent;
+                notificationDisplay.innerHTML = content.innerHTML;
             }
         })
         .catch(error => console.error('Error loading notification:', error));

@@ -41,10 +41,18 @@ body {
 
 #notification-display {
     position: fixed;
-    right: 0px;
-    
-    top: 7%;
-    transform: translateY(-50%);
+    right: 20px;
+    top: 20px;
     color: #00ff00;
     max-width: 300px;
+    text-align: right;
+}
+
+#notification-display .notification-title {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+#notification-display .notification-message {
+    font-size: 16px;
 }

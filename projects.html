@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio with GitHub Repos and Music</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 15px 20px;
+            text-align: center;
+        }
+        .repo-list {
+            margin: 20px;
+            list-style-type: none;
+            padding: 0;
+        }
+        .repo-list li {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+        .audio-player {
+            text-align: center;
+            margin: 20px;
+        }
+        #playlist {
+            list-style-type: none;
+            padding: 0;
+        }
+        #playlist li {
+            padding: 5px;
+            cursor: pointer;
+            color: #007bff;
+        }
+        #playlist li:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to My Portfolio</h1>
+    <p>Here are my GitHub repositories and a playlist to enjoy while you browse!</p>
+</header>
+
+<section>
+    <h2>My GitHub Repositories</h2>
+    <ul class="repo-list" id="repoList"></ul>
+</section>
+
+<section class="audio-player">
+    <h2>Music Playlist</h2>
+    <audio id="audioPlayer" controls>
+        <source src="song1.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <ul id="playlist">
+        <li><a href="#" onclick="changeSong('music/song1.mp3')">Song 1</a></li>
+        <li><a href="#" onclick="changeSong('music/song2.mp3')">Song 2</a></li>
+        <li><a href="#" onclick="changeSong('music/song3.mp3')">Song 3</a></li>
+    </ul>
+</section>
+
+<script>
+    // Fetch GitHub Repositories for @ethandupe
+    fetch('https://api.github.com/users/ethandupe/repos')
+        .then(response => response.json())
+        .then(repos => {
+            const repoList = document.getElementById('repoList');
+            repos.forEach(repo => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `<strong>${repo.name}</strong><br>${repo.description}`;
+                repoList.appendChild(listItem);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching GitHub repositories:', error);
+        });
+
+    // Change song function for the playlist
+    function changeSong(song) {
+        const player = document.getElementById('audioPlayer');
+        player.src = song;
+        player.play();
+    }
+</script>
+
+</body>
+</html>

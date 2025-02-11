@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio with GitHub Repos and Music</title>
+    <title>My Portfolio</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,20 +12,10 @@
             background-color: #f4f4f4;
             color: #333;
         }
-        /* Audio Player Styles */
+
+        /* Hiding the audio player and song selector */
         .audio-player {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 20px;
-            text-align: center;
-            border-bottom: 2px solid #444;
-            width: 100%;
-        }
-        audio {
-            width: 100%;
-            max-width: 300px;
-            border: 2px solid #fff;
-            border-radius: 5px;
+            display: none;
         }
 
         /* Header Styles */
@@ -36,11 +26,13 @@
             text-align: center;
             border-top: 5px solid #444;
         }
+
         .repo-list {
             margin: 20px;
             list-style-type: none;
             padding: 0;
         }
+
         .repo-list li {
             background-color: #fff;
             border: 1px solid #ccc;
@@ -48,15 +40,18 @@
             padding: 10px;
             border-radius: 5px;
         }
+
         #playlist {
             list-style-type: none;
             padding: 0;
         }
+
         #playlist li {
             padding: 5px;
             cursor: pointer;
             color: #007bff;
         }
+
         #playlist li:hover {
             text-decoration: underline;
         }
@@ -64,17 +59,12 @@
 </head>
 <body>
 
-<!-- Audio Player Section -->
+<!-- Hidden Audio Player Section -->
 <div class="audio-player">
-    <audio id="audioPlayer" controls autoplay>
+    <audio id="audioPlayer" autoplay>
         <source src="/music/song1.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-    <ul id="playlist">
-        <li><a href="#" onclick="changeSong('/music/song1.mp3')">Song 1</a></li>
-        <li><a href="#" onclick="changeSong('/music/song2.mp3')">Song 2</a></li>
-        <li><a href="#" onclick="changeSong('/music/song3.mp3')">Song 3</a></li>
-    </ul>
 </div>
 
 <!-- Header Section -->
@@ -90,36 +80,31 @@
 </section>
 
 <script>
-    // Fetch Pinned GitHub Repositories for @ethandupe
-    fetch('https://api.github.com/users/ethandupe/repos?sort=pinned')
-        .then(response => response.json())
-        .then(repos => {
-            const repoList = document.getElementById('repoList');
-            repos.forEach(repo => {
-                if (repo.pinned) {  // Only add pinned repos
-                    const listItem = document.createElement('li');
-                    listItem.innerHTML = `<strong>${repo.name}</strong><br>${repo.description || 'No description available'}`;
-                    repoList.appendChild(listItem);
-                }
-            });
-        })
-        .catch(error => {
-            console.error('Error fetching GitHub repositories:', error);
-        });
-
-    // Change song function for the playlist
-    function changeSong(song) {
-        const player = document.getElementById('audioPlayer');
-        player.src = song;
-        player.play();
-    }
-
-    // Wait for user interaction to enable autoplay
-    document.body.addEventListener('click', function() {
-        const audioPlayer = document.getElementById('audioPlayer');
-        if (audioPlayer.paused) {
-            audioPlayer.play();
+    // Manually adding the specific repositories to the page
+    const repos = [
+        {
+            name: "OS",
+            description: "A simple operating system project.",
+            url: "https://github.com/EthanDupe/OS"
+        },
+        {
+            name: "EthanDupe.github.io",
+            description: "Personal portfolio website using GitHub Pages.",
+            url: "https://github.com/EthanDupe/EthanDupe.github.io"
         }
+    ];
+
+    const repoList = document.getElementById('repoList');
+    repos.forEach(repo => {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `<strong><a href="${repo.url}" target="_blank">${repo.name}</a></strong><br>${repo.description}`;
+        repoList.appendChild(listItem);
+    });
+
+    // Function to auto play song on load (hiding audio controls)
+    document.addEventListener('DOMContentLoaded', () => {
+        const audioPlayer = document.getElementById('audioPlayer');
+        audioPlayer.play();
     });
 </script>
 
